@@ -21,4 +21,5 @@ def main():
     uname_func()
     diskspace_func()
 
-main()
+if __name__ == "__main__":
+    main()
