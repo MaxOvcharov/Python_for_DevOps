@@ -5,8 +5,9 @@ from cStringIO import StringIO
 import re
 
 vhost_start = re.compile(r'<VirtualHost\s+(.*?)>')
-vhost_end = re.compile(r'<VirtualHost>')
+vhost_end = re.compile(r'</VirtualHost')
 docroot_re = re.compile(r'(DocumentRoot\s+)(\S+)')
+
 
 def replace_docroot(conf_string, vhost, new_docroot):
     """
@@ -22,23 +23,22 @@ def replace_docroot(conf_string, vhost, new_docroot):
         if vhost_start_match:
             curr_vhost = vhost_start_match.groups()[0]
             in_vhost = True
-            if in_vhost and (curr_vhost == vhost):
-                docroot_match = docroot_re.search(line)
-                if docroot_match:
-                    sub_line = docroot_re.sub(r'\1%s' % new_docroot, line)
-                    line = sub_line
-                    vhost_end_match = vhost_end.search(line)
-                    if vhost_end_match:
-                        in_vhost = False
-                    yield line
+        if in_vhost and (curr_vhost == vhost):
+            docroot_match = docroot_re.search(line)
+            if docroot_match:
+                sub_line = docroot_re.sub(r'\1%s' % new_docroot, line)
+                conf_string = conf_string.replace(line, sub_line)
+                vhost_end_match = vhost_end.search(sub_line)
+                if vhost_end_match:
+                    in_vhost = False
+                print sub_line
+    return conf_string
 
 if __name__ == '__main__':
     import sys
     conf_file = sys.argv[1]
     vhost = sys.argv[2]
     docroot = sys.argv[3]
-    with open(conf_file, 'r') as config:
-        conf_string = config.read()
-        for line in replace_docroot(conf_string, vhost, docroot):
-            print line
-
+    conf_string = open(conf_file).read()
+    with open(conf_file, 'w') as f:
+        f.write(replace_docroot(conf_string, vhost, docroot))
