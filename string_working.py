@@ -29,5 +29,5 @@ print '4) Find of starting substring "Darwing" is -\t{0}\n'.format(uname.find('D
 print "Checking slice of string: "
 
 smp_index = uname.index('SMP')
-print '1) Print from start of the substring to the end of the string:\t{}'.format(uname[smp_index:])
 print '2) Print from start of the string to the start of the substring:\t{}'.format(uname[:smp_index])
+print '1) Print from start of the substring to the end of the string:\t{}'.format(uname[smp_index:])
