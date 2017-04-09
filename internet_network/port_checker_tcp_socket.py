@@ -28,4 +28,4 @@ if __name__ == "__main__":
     print 'Options: %s, args: %s' % (options, args)
     check = check_server(options.address, options.port)
     print 'Check_server returned %s' % check
-    sys.exit(check)
+    sys.exit(not check)
