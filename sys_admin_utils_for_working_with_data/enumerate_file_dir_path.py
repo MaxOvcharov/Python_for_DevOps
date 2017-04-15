@@ -8,7 +8,7 @@ PATH = '/tmp'
 
 def enumerate_path(path):
     """
-    Returns list fo path to all files in dir
+    Returns list of path to all files in dir
     :param path: path name
     :return: list of path to files
     """
@@ -22,7 +22,7 @@ def enumerate_path(path):
 
 def enumerate_files(path):
     """
-    Returns list fo file from path
+    Returns list of file from path
     :param path: path name
     :return: list of files from path
     """
