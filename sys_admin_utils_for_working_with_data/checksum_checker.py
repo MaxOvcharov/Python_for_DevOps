@@ -11,12 +11,15 @@ def create_checksum(path):
     :param path: path to the file
     :return: full checksum of the file
     """
-    with open(path) as f:
-        checksum = hashlib.md5
-        while True:
-            buffer = f.read(8192)
-            if not buffer:
-                break
-            checksum.update(buffer)
-    checksum = checksum.digest()
+    checksum = hashlib.md5()
+    try:
+        with open(path) as f:
+            while True:
+                tmp_buffer = f.read(8192)
+                if not tmp_buffer:
+                    break
+                checksum.update(tmp_buffer)
+        checksum = checksum.digest()
+    except IOError, e:
+        print "Unsupported file format: %s" % e
     return checksum
