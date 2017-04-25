@@ -16,14 +16,14 @@ class Snmp(object):
         self.version = version
         self.dest_host = dest_host
         self.community = community
-        
+
     def query(self):
         """Simple SNMP query"""
         try:
             result = netsnmp.snmwalk(self.oid,
-                                     Version=self.version,
-                                     DestHost=self.dest_host,
-                                     Community=self.community)
+                                     version=self.version,
+                                     destHost=self.dest_host,
+                                     community=self.community)
         except Exception, e:
             print "HANDLE ERROR: %s" % e
             result = None
