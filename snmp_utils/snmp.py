@@ -24,7 +24,7 @@ class Snmp(object):
                                      version=self.version,
                                      destHost=self.dest_host,
                                      community=self.community)
-        except Exception, e:
-            print "HANDLE ERROR: %s" % e
+        except Exception as e:
+            print("HANDLE ERROR: %s" % e)
             result = None
         return result
