@@ -60,7 +60,7 @@ class OpSysType(object):
 
 def os_fingerprint():
     os_type = OpSysType()
-    print (os_type.queryOS())
+    print(os_type.queryOS())
 
 
 if __name__ == '__main__':

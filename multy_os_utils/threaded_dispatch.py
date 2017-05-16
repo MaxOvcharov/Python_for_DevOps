@@ -6,7 +6,7 @@ import subprocess
 import time
 
 from configparser import ConfigParser
-from Queue import Queue
+from queue import Queue
 from threading import Thread
 
 start = time.time()
