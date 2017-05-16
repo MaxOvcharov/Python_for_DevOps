@@ -12,12 +12,12 @@ p = poplib.POP3_SSL(mail_server, port)
 try:
     p.user(username)
     p.pass_(password)
-except Exception, e:
-    print "Error handel: " + str(e)
+except Exception as e:
+    print("Error handel: " + str(e))
 
 for msg_id in p.list()[1]:
     # get all emails from email box
-    print msg_id
+    print(msg_id)
     outf = open('%s.eml' % msg_id, 'w')
     outf.write('\n'.join(p.retr(msg_id)[1]))
     outf.close()

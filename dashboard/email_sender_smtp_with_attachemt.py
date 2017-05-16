@@ -19,10 +19,10 @@ m["From"] = from_addr
 m["Subject"] = subject_header
 
 ctype, encoding = mimetypes.guess_type(attachment)
-print ctype, encoding
+print(ctype, encoding)
 
 maintype, subtype = ctype.split('/', 1)
-print maintype, subtype
+print(maintype, subtype)
 
 m.attach(MIMEText(body))
 fp = open(attachment, 'rb')

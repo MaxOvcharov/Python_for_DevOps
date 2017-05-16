@@ -21,4 +21,5 @@ we'll show a bulleted list:
 '''
 
 html = docutils.core.publish_string(source=rest, writer_name='html')
-print html[html.find('<body>') + 6:html.find('</body>')]
+print(html[html.find('<body>') + 6:html.find('</body>')])
+
