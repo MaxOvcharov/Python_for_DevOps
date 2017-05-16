@@ -96,7 +96,7 @@ sftpclient = create_sftp_client(hostname, port, username, password, keyfile_path
 # List files in the default directory on the remote computer.
 dirlist = sftpclient.listdir('.')
 for row in dirlist:
-    print row
+    print(row)
 
 # Retrieve a file with the name 'remote_file.txt' on the remote computer
 # and store it in a file named 'downloaded_file.txt'

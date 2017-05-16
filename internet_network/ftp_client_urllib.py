@@ -15,17 +15,17 @@ import urllib
 import sys
 
 if '-h' in sys.argv or '--help' in sys.argv:
-    print __doc__
+    print(__doc__)
     sys.exit(1)
 
 if not len(sys.argv) == 3:
-    print 'URL and FILENAME are mandatory'
-    print __doc__
+    print('URL and FILENAME are mandatory')
+    print(__doc__)
     sys.exit(1)
 
 url = sys.argv[1]
 file_name = sys.argv[2]
 try:
     urllib.urlretrieve(url, file_name)
-except Exception, e:
-    print "CRITICAL ERROR; %s" % e
+except Exception as e:
+    print("CRITICAL ERROR; %s" % e)

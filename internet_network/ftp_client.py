@@ -34,14 +34,14 @@ ftp = ftplib.FTP(options.remote_host_address)
 if options.username:
     try:
         ftp.login(options.username, options.password)
-    except ftplib.error_perm, e:
-        print 'Logging failed: %s' % e
+    except ftplib.error_perm as e:
+        print('Logging failed: %s' % e)
         sys.exit(1)
 else:
     try:
         ftp.login()
-    except ftplib.error_perm, e:
-        print 'Anonymous login failed: %s' % e
+    except ftplib.error_perm as e:
+        print('Anonymous login failed: %s' % e)
         sys.exit(1)
 
 local_file = ''

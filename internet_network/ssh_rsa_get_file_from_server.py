@@ -17,6 +17,6 @@ if __name__ == '__main__':
     sftp = paramiko.SFTPClient.from_transport(t)
     files =sftp.listdir(dir_path)
     for file in files:
-        print 'Retrieving: %s' % file
+        print('Retrieving: %s' % file)
         sftp.get(os.path.join(dir_path, file), file)
     t.close()

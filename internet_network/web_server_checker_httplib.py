@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import httplib
+import http.client
 import sys
 
 
@@ -16,19 +16,19 @@ def check_webserver(address, port, resource):
     if not resource.startswith('/'):
         resource = '/' + resource
     try:
-        conn = httplib.HTTPConnection(address, port)
-        print 'HTTP connection created successfully'
+        conn = http.client.HTTPConnection(address, port)
+        print('HTTP connection created successfully')
         # Sent request
         req = conn.request('GET', resource)
-        print 'Request for %s successfull' % resource
+        print('Request for %s successfull' % resource)
         # Get response
         response = conn.getresponse()
-        print 'Response status %s' % response.status
-    except httplib.error, e:
-        print 'HTTP connection failed: %s' % e
+        print('Response status %s' % response.status)
+    except http.client.error as e:
+        print('HTTP connection failed: %s' % e)
         return False
     finally:
-        print 'HTTP connection closed successfully'
+        print('HTTP connection closed successfully')
     if response.status in [200, 301]:
         return True
     else:
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     parser.add_option('-r', '--resource', dest='resource', default='index.html',
                       help='RESOURCE to check', metavar='RESOURCE')
     (options, args) = parser.parse_args()
-    print 'Options: %s, args: %s' % (options, args)
+    print('Options: %s, args: %s' % (options, args))
     check = check_webserver(options.address, options.port, options.resource)
-    print 'Check_webserver returned %s' % check
+    print('Check_webserver returned %s' % check)
     sys.exit(not check)

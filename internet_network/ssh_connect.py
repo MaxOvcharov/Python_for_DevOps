@@ -19,5 +19,5 @@ if __name__ == '__main__':
               password=password)
 
     stdin, stdout, stderror = s.exec_command('ls -lah')
-    print stdout.read()
+    print(stdout.read())
     s.close()

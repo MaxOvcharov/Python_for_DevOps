@@ -21,7 +21,7 @@ if __name__ == '__main__':
     channel.settimeout(5)
     channel.exec_command('sudo ls')
     channel.send(password + '\n')
-    print channel.recv(1024)
+    print(channel.recv(1024))
 
     channel.close()
     s.close()
