@@ -51,7 +51,7 @@ def generate_log_report(logfile):
     report_dict = {}
     for line in logfile:
         line_dict = dictify_logline(line)
-        print line_dict
+        print(line_dict)
         try:
             bytes_sent = int(line_dict['bytes_sent'])
         except ValueError:
@@ -63,15 +63,15 @@ def generate_log_report(logfile):
 
 if __name__ == '__main__':
     if not len(sys.argv) > 1:
-        print __doc__
+        print(__doc__)
         sys.exit(1)
     infile_name = sys.argv[1]
     try:
         infile = open(infile_name, 'r')
     except IOError:
-        print "You must specity a valid file to parse"
-        print __doc__
+        print("You must specity a valid file to parse")
+        print(__doc__)
         sys.exit(1)
     log_report = generate_log_report(infile)
-    print log_report
+    print(log_report)
     infile.close()

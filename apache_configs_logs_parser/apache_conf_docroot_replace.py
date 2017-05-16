@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from cStringIO import StringIO
 import re
+
+from io import StringIO
 
 vhost_start = re.compile(r'<VirtualHost\s+(.*?)>')
 vhost_end = re.compile(r'</VirtualHost')
@@ -31,7 +32,7 @@ def replace_docroot(conf_string, vhost, new_docroot):
                 vhost_end_match = vhost_end.search(sub_line)
                 if vhost_end_match:
                     in_vhost = False
-                print sub_line
+                print(sub_line)
     return conf_string
 
 if __name__ == '__main__':

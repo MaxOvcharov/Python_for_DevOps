@@ -13,8 +13,8 @@ from queue import Queue
 
 num_ping_threads = 3
 num_arp_threads = 3
-in_queue = Queue()
-out_queue = Queue()
+in_queue = Queue
+out_queue = Queue
 
 ips = ['10.0.1.1', '10.0.1.3', '10.0.1.11', '10.0.1.51']
 
@@ -70,4 +70,3 @@ for i in range(num_arp_threads):
 print('Main Thread Waiting')
 in_queue.join()
 out_queue.join()
-print('Done all tasks')
