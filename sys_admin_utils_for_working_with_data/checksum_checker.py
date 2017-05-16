@@ -20,6 +20,6 @@ def create_checksum(path):
                     break
                 checksum.update(tmp_buffer)
         checksum = checksum.digest()
-    except IOError, e:
-        print "Unsupported file format: %s" % e
+    except IOError as e:
+        print("Unsupported file format: %s" % e)
     return checksum

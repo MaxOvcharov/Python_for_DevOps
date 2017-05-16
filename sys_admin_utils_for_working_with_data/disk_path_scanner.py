@@ -49,26 +49,26 @@ if __name__ == '__main__':
     import sys
 
     if '-h' in sys.argv or '--help' in sys.argv:
-        print __doc__
+        print(__doc__)
         sys.exit(1)
 
     if not len(sys.argv) == 2:
-        print 'PATH is mandatory'
-        print __doc__
+        print('PATH is mandatory')
+        print(__doc__)
         sys.exit(1)
 
     PATH = sys.argv[1]
     path_walker = RecursivePathWalker(PATH)
-    print '\n--**-- START --**--\n'
-    print '1) Recursive listing of all paths in a dir\n'
+    print('\n--**-- START --**--\n')
+    print('1) Recursive listing of all paths in a dir\n')
     for path in path_walker.enumerate_path():
-        print path
+        print(path)
 
-    print '\n2) Recursive listing of all files in a dir\n'
+    print('\n2) Recursive listing of all files in a dir\n')
     for file_name in path_walker.enumerate_files():
-        print file_name
+        print(file_name)
 
-    print '\n3) Recursive listing of all dirs in a dir\n'
+    print('\n3) Recursive listing of all dirs in a dir\n')
     for dir_name in path_walker.enumerate_dirs():
-        print dir_name
-    print '\n--**-- THE END --**--\n'
+        print(dir_name)
+    print('\n--**-- THE END --**--\n')

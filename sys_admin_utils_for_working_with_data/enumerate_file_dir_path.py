@@ -46,14 +46,14 @@ def enumerate_dirs(path):
     return subdir_collection
 
 if __name__ == '__main__':
-    print '\nRecursive listing of all paths in a dir\n'
+    print('\nRecursive listing of all paths in a dir\n')
     for path in enumerate_path(PATH):
-        print "***  %s  ***" % path
+        print('***  %s  ***' % path)
 
-    print '\nRecursive listing of all files in a dir\n'
+    print('\nRecursive listing of all files in a dir\n')
     for file_name in enumerate_files(PATH):
-        print "***  %s  ***" % file_name
+        print('***  %s  ***' % file_name)
 
-    print '\nRecursive listing of all dirs in a dir\n'
+    print('\nRecursive listing of all dirs in a dir\n')
     for dir_name in enumerate_dirs(PATH):
-        print "***  %s  ***" % dir_name
+        print('***  %s  ***' % dir_name)

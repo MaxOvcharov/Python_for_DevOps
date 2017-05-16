@@ -27,10 +27,10 @@ def find_duplicates(path='/tmp'):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print "Find duplicates for default dir -> /tmp"
+        print('Find duplicates for default dir -> /tmp')
         duplicates = find_duplicates()
     else:
         duplicates = find_duplicates(sys.argv[1])
-    print '//-//-' * 9 + '\n'
+    print('//-//-' * 9 + '\n')
     for dup in enumerate(duplicates, start=1):
-        print "%s) Duplicate file: %s" % dup
+        print('%s) Duplicate file: %s" % dup')
