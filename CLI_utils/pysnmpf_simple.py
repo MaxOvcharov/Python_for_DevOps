@@ -7,10 +7,10 @@ from subprocess import call
 
 def main():
     p = optparse.OptionParser(
-        description="Python wrapped snmpdf command",
-        prog="pysnmpdf",
-        version="0.1a",
-        usage="%prog machine"
+        description='Python wrapped snmpdf command',
+        prog='pysnmpdf',
+        version='0.1a',
+        usage='%prog machine'
     )
     p.add_option('-c', '--community', help='snmp community string')
     p.add_option('-V', '--Version', help='snmp version to use')
