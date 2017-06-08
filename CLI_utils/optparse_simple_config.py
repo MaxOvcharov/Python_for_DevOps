@@ -18,7 +18,7 @@ def main():
     p = optparse.OptionParser()
     p.add_option('--sysadmin', '-s')
     p.add_option('--config', '-c', action='store_true')
-    p.set_defaults(sysadmin='BOFH')
+    p.set_defaults(sysadmin='BOTH')
 
     options, arguments = p.parse_args()
     if options.config:
